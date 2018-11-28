@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.easy.mapper.FileMapper">
+	<resultMap id="BaseResultMap" type="com.easy.model.FileModel">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="fileName" property="fileName" jdbcType="VARCHAR" />
+		<result column="fileType" property="fileType" jdbcType="VARCHAR" />
+		<result column="filePath" property="filePath" jdbcType="VARCHAR" />
+		<result column="fileSize" property="fileSize" jdbcType="DECIMAL" />
+		<result column="isUse" property="isUse" jdbcType="VARCHAR" />
+		<result column="fileContentType" property="fileContentType" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,fileName,fileType,filePath,fileSize,isUse,fileContentType
+	</sql>
+
+	<insert id="insert" parameterType="FileModel">
+		<selectKey resultType="Long" keyProperty="id" order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		insert into filehandle
+		(fileType,fileName,filePath,isUse,fileContentType)
+		values
+		(#{fileType},#{fileName},#{filePath},1,#{fileContentType})
+	</insert>
+
+	<select id="selectByAttachmentId" parameterType="Long"
+		resultType="FileModel">
+		select
+		<include refid="Base_Column_List" />
+		from filehandle
+		where id = #{id}
+	</select>
+	
+	<delete id="deleteAttachmentById" parameterType="Long">
+		delete from
+		filehandle
+		where id = #{id}
+	</delete>
+	<update id="updateByPrimaryKey" parameterType="FileModel">
+		update filehandle
+		set filePath = #{filePath}
+		where id = #{id}
+	</update>
+</mapper>
