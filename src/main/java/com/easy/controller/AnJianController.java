@@ -14,30 +14,31 @@ import com.easy.commons.utils.PageInfo;
 import com.easy.service.AnJianService;
 
 /**
- * 药品管理Controller
- * 
- * @Title: DictController.java
- * @Package com.huazhukeji.controller
- * @author 耿壮
- * @date 2016年7月27日 上午11:46:41
- * @company 河北华助科技有限公司
- * @version V1.0
+  *  案件管理管理Controller
+ *                       
+ * @Filename: AnJianController.java
+ * @Description: 
+ * @Version: V1.0.1
+ * @Author: 耿壮
+ * @Email: gengzhuang@easy.com
+ * @History:<br>
+ *
  */
 @Controller
-@RequestMapping("/dict")
+@RequestMapping("/anjian")
 public class AnJianController extends BaseController {
 	
 	@Autowired
 	private AnJianService anJianService;
 	
 	/**
-	 * 药品管理主页面
+	 * 案件管理主页面
 	 * 
 	 * @return
 	 */
 	@RequestMapping(value = "/manager", method = RequestMethod.GET)
     public String manager() {
-		logger.debug("药品管理主页面");
+		logger.debug("案件管理主页面");
         return "dict/manager";
     }
 	

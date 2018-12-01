@@ -31,17 +31,17 @@ public class LoginController extends BaseController {
 	private ResourceService resourceService;
 	
     /**
-     * 首页
+         * 首页
      *
      * @return
      */
-    @RequestMapping(value = "/")
+    @RequestMapping(value = "/admin")
     public String index() {
         return "redirect:/index";
     }
 
     /**
-     * 首页
+         * 首页
      *
      * @param model
      * @return
@@ -104,7 +104,7 @@ public class LoginController extends BaseController {
     }
 
     /**
-     * 未授权
+         * 未授权
      * @return {String}
      */
     @RequestMapping(value = "/unauth")
@@ -116,7 +116,7 @@ public class LoginController extends BaseController {
     }
 
     /**
-     * 退出
+               *退出
      * @return {Result}
      */
     @RequestMapping(value = "/logout")
@@ -129,7 +129,7 @@ public class LoginController extends BaseController {
     }
     
     /**
-     * 登录菜单树
+         *  登录菜单树
      */
     @RequestMapping(value = "/menutree", method = RequestMethod.POST)
     @ResponseBody
@@ -137,4 +137,13 @@ public class LoginController extends BaseController {
     	User currentUser = getCurrentUser();
         return resourceService.findTree(currentUser);
     }
+    
+    /**
+     * 注册
+     * @return
+     */
+	@RequestMapping(value = "/reg")
+	public String reg() {
+	    return "reg";
+	}
 }

@@ -29,8 +29,7 @@
         <property name="filterChainDefinitions">
             <value>
                 /commons/** = anon <!-- 不需要认证 -->
-                /main.cgi = anon <!-- 不需要认证 -->
-                /reg/* = anon <!-- 注册页面 -->
+                /reg = anon <!-- 注册页面 -->
                 /static/** = anon
                 /login = anon
                 /** = authc <!-- 需要认证 -->

@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.easy</groupId>
-    <artifactId>photolist</artifactId>
+    <artifactId>phonelist</artifactId>
     <packaging>war</packaging>
     <version>1.0</version>
-    <name>photolist Maven Webapp</name>
+    <name>phonelist Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -243,7 +243,7 @@
     </dependencies>
 
     <build>
-        <finalName>photolist</finalName>
+        <finalName>phonelist</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
