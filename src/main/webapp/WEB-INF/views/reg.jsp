@@ -1,41 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="/commons/global.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>登录页面 - Bootstrap后台管理系统模版Ace下载</title>
+		<title>通讯录注册页面</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-		<!-- basic styles -->
-
-		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
-
+		<meta http-equiv="X-UA-Compatible" content="edge" />
+		<link href="${staticPath }/static/assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="${staticPath }/static/assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="${staticPath }/static/assets/css/datepicker.css" />
 		<!--[if IE 7]>
-		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		  <link rel="stylesheet" href="${staticPath }/static/assets/css/font-awesome-ie7.min.css" />
 		<![endif]-->
-
-		<!-- page specific plugin styles -->
-
-		<!-- fonts -->
-
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
-
-		<!-- ace styles -->
-
-		<link rel="stylesheet" href="assets/css/ace.min.css" />
-		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
-
+		<!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" /> -->
+		<link rel="stylesheet" href="${staticPath }/static/assets/css/ace.min.css" />
+		<link rel="stylesheet" href="${staticPath }/static/assets/css/ace-rtl.min.css" />
 		<!--[if lte IE 8]>
-		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		  <link rel="stylesheet" href="${staticPath }/static/assets/css/ace-ie.min.css" />
 		<![endif]-->
-
-		<!-- inline styles related to this page -->
-
-		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-
 		<!--[if lt IE 9]>
-		<script src="assets/js/html5shiv.js"></script>
-		<script src="assets/js/respond.min.js"></script>
+		<script src="${staticPath }/static/assets/js/html5shiv.js"></script>
+		<script src="${staticPath }/static/assets/js/respond.min.js"></script>
 		<![endif]-->
 	</head>
 
@@ -48,197 +34,243 @@
 							<div class="center">
 								<h1>
 									<i class="icon-leaf green"></i>
-									<span class="red">Ace</span>
-									<span class="white">Application</span>
+									<span class="red">通讯录</span>
+									<span class="white">系统</span>
 								</h1>
-								<h4 class="blue">&copy; Company Name</h4>
+								<h4 class="blue">&copy; EASY</h4>
 							</div>
 
 							<div class="space-6"></div>
 
+							<!-- 提示 -->
+							<!-- 模态框（Modal） -->
+							<div class="modal fade" id="moneyType" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<div class="titletext">提示</div>
+											<!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+												&times;
+											</button> -->
+										</div>
+										<div class="modal-body">
+											<h4 class="modal-title" id="myModalLabel">
+												<div id="typeNameMes"></div>
+											</h4>
+										</div>
+										<div class="modal-footer">
+											<div class="pdapmodal-footer" id="parButton">
+												  <button aria-hidden="true" onclick="" data-dismiss="modal" class="btn btn-primary">关闭</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 							<div class="position-relative">
 								<div id="login-box" class="login-box visible widget-box no-border">
 									<div class="widget-body">
 										<div class="widget-main">
 											<h4 class="header blue lighter bigger">
 												<i class="icon-coffee green"></i>
-												Please Enter Your Information
+												账号密码登录
 											</h4>
 
 											<div class="space-6"></div>
 
 											<form>
 												<fieldset>
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="Username" />
+													<div class="block clearfix">
+														<div class="width-25 pull-left">
+															<label style="font-size: 20px;">用户名:</label>
+														</div>
+														<span class="block input-icon input-icon-right width-70 pull-right">
+															<input type="text" class="form-control" placeholder="用户名" />
 															<i class="icon-user"></i>
 														</span>
-													</label>
+													</div>
 
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Password" />
+													<div class="block clearfix">
+														<div class="width-25 pull-left">
+															<label style="font-size: 20px;">密&nbsp;&nbsp;&nbsp;&nbsp;码:</label>
+														</div>
+														<span class="block input-icon input-icon-right width-70 pull-right">
+															<input type="password" class="form-control" placeholder="密码" />
 															<i class="icon-lock"></i>
 														</span>
-													</label>
+													</div>
 
 													<div class="space"></div>
 
 													<div class="clearfix">
-														<label class="inline">
-															<input type="checkbox" class="ace" />
-															<span class="lbl"> Remember Me</span>
-														</label>
-
-														<button type="button" class="width-35 pull-right btn btn-sm btn-primary">
+														<button type="button" class="width-100 pull-right btn btn-sm btn-primary">
 															<i class="icon-key"></i>
-															Login
+															登录
 														</button>
 													</div>
 
 													<div class="space-4"></div>
 												</fieldset>
 											</form>
-
-											<div class="social-or-login center">
-												<span class="bigger-110">Or Login Using</span>
-											</div>
-
-											<div class="social-login center">
-												<a class="btn btn-primary">
-													<i class="icon-facebook"></i>
-												</a>
-
-												<a class="btn btn-info">
-													<i class="icon-twitter"></i>
-												</a>
-
-												<a class="btn btn-danger">
-													<i class="icon-google-plus"></i>
-												</a>
-											</div>
+											
 										</div><!-- /widget-main -->
-
-										<div class="toolbar clearfix">
-											<div>
-												<a href="#" onclick="show_box('forgot-box'); return false;" class="forgot-password-link">
-													<i class="icon-arrow-left"></i>
-													I forgot my password
-												</a>
-											</div>
-
-											<div>
-												<a href="#" onclick="show_box('signup-box'); return false;" class="user-signup-link">
-													I want to register
-													<i class="icon-arrow-right"></i>
-												</a>
-											</div>
-										</div>
-									</div><!-- /widget-body -->
-								</div><!-- /login-box -->
-
-								<div id="forgot-box" class="forgot-box widget-box no-border">
-									<div class="widget-body">
-										<div class="widget-main">
-											<h4 class="header red lighter bigger">
-												<i class="icon-key"></i>
-												Retrieve Password
-											</h4>
-
-											<div class="space-6"></div>
-											<p>
-												Enter your email and to receive instructions
-											</p>
-
-											<form>
-												<fieldset>
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="email" class="form-control" placeholder="Email" />
-															<i class="icon-envelope"></i>
-														</span>
-													</label>
-
-													<div class="clearfix">
-														<button type="button" class="width-35 pull-right btn btn-sm btn-danger">
-															<i class="icon-lightbulb"></i>
-															Send Me!
-														</button>
-													</div>
-												</fieldset>
-											</form>
-										</div><!-- /widget-main -->
-
-										<div class="toolbar center">
-											<a href="#" onclick="show_box('login-box'); return false;" class="back-to-login-link">
-												Back to login
+										
+										<div class="toolbar center" style="padding:9px 18px">
+											<a style="font-size:14px" href="#" onclick="show_box('signup-box'); return false;" class="user-signup-link">
+												立即注册
 												<i class="icon-arrow-right"></i>
 											</a>
 										</div>
 									</div><!-- /widget-body -->
-								</div><!-- /forgot-box -->
+								</div><!-- /login-box -->
 
 								<div id="signup-box" class="signup-box widget-box no-border">
 									<div class="widget-body">
 										<div class="widget-main">
 											<h4 class="header green lighter bigger">
 												<i class="icon-group blue"></i>
-												New User Registration
+												注册新用户
 											</h4>
-
-											<div class="space-6"></div>
-											<p> Enter your details to begin: </p>
 
 											<form>
 												<fieldset>
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="email" class="form-control" placeholder="Email" />
-															<i class="icon-envelope"></i>
+													<div class="block clearfix">
+														<div class="width-30 pull-left">
+															<label style="font-size: 20px;">手机号码:</label>
+														</div>
+														<span class="block input-icon input-icon-right width-65 pull-right">
+															<input type="text" class="form-control" placeholder="手机号码" />
+															<i class="icon-phone-sign"></i>
 														</span>
-													</label>
+													</div>
 
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="Username" />
+													<div class="block clearfix">
+														<div class="width-30 pull-left">
+															<label style="font-size: 20px;">用&nbsp;&nbsp;户&nbsp;&nbsp;名:</label>
+														</div>
+														<span class="block input-icon input-icon-right width-65 pull-right">
+															<input type="text" class="form-control" placeholder="登录用户名（最长14位英文字符或数字）" />
 															<i class="icon-user"></i>
 														</span>
-													</label>
+													</div>
 
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Password" />
+													<!-- S 自定义添加字段 -->
+													<div class="block clearfix">
+														<div class="width-30 pull-left">
+															<label style="font-size: 20px;">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:</label>
+														</div>
+														<span class="block input-icon input-icon-right width-65 pull-right">
+															<input type="text" class="form-control" placeholder="姓名（真实姓名）"/>
+															<i class="icon-group" style="font-size: 13px;"></i>
+														</span>
+													</div>
+
+													<div class="block clearfix">
+														<div class="width-30 pull-left">
+															<label style="font-size: 20px;">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别:</label>
+														</div>
+														<span class="block input-icon input-icon-right btn-group dropdown width-65 pull-right">
+																<select class="form-control" id="form-field-select-1">
+																	<option value="">--请选择--</option>
+																	<option value="0">男</option>
+																	<option value="1">女</option>
+																</select>
+														</span>
+													</div>
+													
+													<div class="block clearfix">
+														<div class="width-30 pull-left">
+															<label style="font-size: 20px;">出生日期:</label>
+														</div>
+														<span class="block input-icon input-icon-right width-65 pull-right">
+															<input class="form-control date-picker" id="id-date-picker-1" readonly="readonly" type="text" data-date-format="yyyy-mm-dd" />
+															<i class="icon-calendar bigger-110"></i>
+														</span>
+													</div>
+
+													<div class="block clearfix">
+														<div class="width-30 pull-left">
+															<label style="font-size: 20px;">行&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业:</label>
+														</div>
+														<span class="block input-icon input-icon-right width-65 pull-right">
+															<select class="form-control" id="form-field-select-1">
+																<option value="">--请选择--</option>
+																<option value="0">男</option>
+																<option value="1">女</option>
+															</select>
+														</span>
+													</div>
+													
+													<div class="block clearfix">
+														<div class="width-30 pull-left">
+															<label style="font-size: 20px;">乡&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;镇:</label>
+														</div>
+														<span class="block input-icon input-icon-right width-65 pull-right">
+															<select class="form-control" id="form-field-select-1">
+																<option value="">--请选择--</option>
+																<option value="0">男</option>
+																<option value="1">女</option>
+															</select>
+														</span>
+													</div>
+
+													<div class="block clearfix">
+														<div class="width-30 pull-left">
+															<label style="font-size: 20px;">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址:</label>
+														</div>
+														<span class="block input-icon input-icon-right width-65 pull-right">
+															<input type="text" name="address" id="address" class="form-control" placeholder="详细地址" />
+															<i class="icon-home" style="font-size: 15px;"></i>
+														</span>
+													</div>
+													<!-- E 自定义添加字段 -->
+													
+													<div class="block clearfix">
+														<div class="width-30 pull-left">
+															<label style="font-size: 20px;">登录密码:</label>
+														</div>
+														<span class="block input-icon input-icon-right width-65 pull-right">
+															<input type="password" class="form-control" placeholder="登录密码（6-16位英文数字或标点符号）" />
 															<i class="icon-lock"></i>
 														</span>
-													</label>
-
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Repeat password" />
-															<i class="icon-retweet"></i>
+													</div>
+													
+													<div class="block clearfix">
+														<div class="width-30 pull-left">
+															<label style="font-size: 20px;">重复密码:</label>
+														</div>
+														<span class="block input-icon input-icon-right clearfix width-65 pull-right">
+															<input type="password" class="form-control" placeholder="重复密码" />
+															<i class="icon-lock"></i>
 														</span>
-													</label>
+													</div>
+													
+													<div class="block clearfix">
+														<div class="width-30 pull-left">
+															<label style="font-size: 20px;">短信验证:</label>
+														</div>
+														<button type="reset" id="btnMessage" onclick="sendmessage(this,180);" class="width-30 pull-right btn btn-sm btn-success" value="发送短信">
+															发送短信
+														</button>
+														<div class="width-35 pull-right">
+															<input id="shortMessage" name="shortMessage" type="text" class="form-control" placeholder="短信验证" />
+														</div>
+													</div>
+													
+													<div class="block clearfix">
+														<div class="width-65 pull-right">
+															未收到短信？请3分钟后重试！
+														</div>
+													</div>
 
-													<label class="block">
-														<input type="checkbox" class="ace" />
-														<span class="lbl">
-															I accept the
-															<a href="#">User Agreement</a>
-														</span>
-													</label>
-
-													<div class="space-24"></div>
+													<div class="space"></div>
 
 													<div class="clearfix">
 														<button type="reset" class="width-30 pull-left btn btn-sm">
-															<i class="icon-refresh"></i>
-															Reset
+															<i class="icon-refresh"></i>重新填写
 														</button>
 
-														<button type="button" class="width-65 pull-right btn btn-sm btn-success">
-															Register
-															<i class="icon-arrow-right icon-on-right"></i>
+														<button type="button" onclick="reg()" class="width-65 pull-right btn btn-sm btn-success">
+															<i class="icon-arrow-right icon-on-right"></i>注册
 														</button>
 													</div>
 												</fieldset>
@@ -247,8 +279,7 @@
 
 										<div class="toolbar center">
 											<a href="#" onclick="show_box('login-box'); return false;" class="back-to-login-link">
-												<i class="icon-arrow-left"></i>
-												Back to login
+												<i class="icon-arrow-left"></i>返回登录
 											</a>
 										</div>
 									</div><!-- /widget-body -->
@@ -259,45 +290,100 @@
 				</div><!-- /.row -->
 			</div>
 		</div><!-- /.main-container -->
-
-		<!-- basic scripts -->
-
+		
 		<!--[if !IE]> -->
-
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='${staticPath }/static/assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+		</script>
 		<!-- <![endif]-->
 
-		<!--[if IE]>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<![endif]-->
-
 		<!--[if !IE]> -->
-
-		<script type="text/javascript">
-			window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
-		</script>
-
+			<script src="${staticPath }/static/assets/js/jquery-2.0.3.min.js"></script>
 		<!-- <![endif]-->
-
 		<!--[if IE]>
-<script type="text/javascript">
- window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
-</script>
-<![endif]-->
-
+			<script src="${staticPath }/static/assets/js/jquery-1.10.2.min.js"></script>
+		<![endif]-->
+		
+		<!--[if IE]>
 		<script type="text/javascript">
-			if("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+			window.jQuery || document.write("<script src='${staticPath }/static/assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+		</script>
+		<![endif]-->
+
+		<script type="text/javascript" src="${staticPath }/static/assets/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="${staticPath }/static/assets/js/date-time/bootstrap-datepicker.min.js"></script>
+		<script type="text/javascript" src="${staticPath }/static/assets/js/date-time/bootstrap-datetimepicker.zh-CN.js"></script>
+		
+		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='${staticPath }/static/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 		</script>
 
-		<!-- inline scripts related to this page -->
-
 		<script type="text/javascript">
+			$(function() {
+				$('.date-picker').datepicker({
+					language: 'cn',
+					autoclose: true
+				}).next().on(ace.click_event, function(){
+					$(this).prev().focus();
+				});
+			});
+		
 			function show_box(id) {
-			 jQuery('.widget-box.visible').removeClass('visible');
-			 jQuery('#'+id).addClass('visible');
+				jQuery('.widget-box.visible').removeClass('visible');
+				jQuery('#'+id).addClass('visible');
 			}
+			
+			function showDialogMsg(msg) {
+				$("#typeNameMes").html(msg);
+				$("#moneyType").modal("show");
+			}
+			
+			function reg() {
+				var shortMessage = $('#shortMessage').val();
+				if (shortMessage) {
+					// 验证注册码
+					$.ajax({
+						
+					});
+				} else {
+					showDialogMsg('请填写短信验证码！');
+				}
+			}
+			
+			function sendmessage(obj,second){
+				if(sendmessage){
+					alert("发送短信");
+					countDown(obj,second)
+				}
+				else{
+					alert("错误，虽然永远走不到这里！");
+				}
+		    }
+			function countDown(obj,second){
+			    // 如果秒数还是大于0，则表示倒计时还没结束
+			    if(second>=0){
+			    	// 获取默认按钮上的文字
+			        if(typeof buttonDefaultValue === 'undefined' ){
+			        	buttonDefaultValue =  obj.defaultValue;
+			    	}
+			        // 按钮置为不可点击状态
+			        obj.disabled = true;            
+			        // 按钮里的内容呈现倒计时状态
+			        // obj.value = buttonDefaultValue+'('+second+')';
+			        $('#btnMessage').text('重新发送('+second+')');
+			        // 时间减一
+			        second--;
+			        // 一秒后重复执行
+			        setTimeout(function(){countDown(obj,second);},1000);
+			        // 否则，按钮重置为初始状态
+		        }else{
+			        // 按钮置未可点击状态
+			        obj.disabled = false;   
+			        // 按钮里的内容恢复初始状态
+			        // obj.value = buttonDefaultValue;
+			        $('#btnMessage').text('发送短信');
+		        }   
+		    }
 		</script>
-	<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
 </html>
